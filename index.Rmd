@@ -86,7 +86,7 @@ Und der Quellcode ist bei GitHub [https://github.com/tinu-schneider/Demo_Bookdow
 \hrule
 \vfill
 
-<br><br> 
+<br><br>
 
 
 **Autor**    
