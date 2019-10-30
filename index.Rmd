@@ -1,0 +1,103 @@
+--- 
+title: "Demo R-Bookdown"
+subtitle: "Am Beispiel Bevölkerungsentwicklung 1991--2045"
+date: "Erstellt am `r format(Sys.Date(), '%d. %B %Y')`"
+site: bookdown::bookdown_site
+documentclass: article
+fontsize: 10pt
+classoption: a4paper
+geometry: left=30mm, inner=32mm, outer=32mm, top=40mm, footnotesep=15pt, head=18pt, headsep=20mm
+mainfont: Roboto
+always_allow_html: yes
+urlcolor: RoyalBlue
+linkcolor: RoyalBlue
+citecolor: RoyalBlue
+bibliography: "book.bib"
+biblio-style: "apalike"
+link-citations: false
+github-repo: "tinu-schneider/Demo_Bookdown"
+---
+
+
+# Impressum {-}
+
+
+
+\normalsize
+
+\setstretch{1.05}
+
+Dieses Dokument wird mit [`bookdown`](http://bookdown.org) auf Basis der Programmiersprache [`R`](https://www.r-project.org/) erstellt. 
+
+Dazu werden die aktuellen Rohdaten aus mehreren Exceldateien automatisch eingelesen und daraus zusammen mit dem Fliesstext aus der Quelldatei ein `HTML`- und ein `PDF`-Dokument erzeugt. 
+
+Der Bericht als PDF ist unter diesem Link verfügbar    
+[www.tinuschneider.ch/demo-bookdown/Demo_R-bookdown.pdf](https://www.tinuschneider.ch/demo-bookdown/Demo_R-bookdown.pdf)
+
+Eine zugehörige PowerPoint-Präsentation findet sich hier    
+[www.tinuschneider.ch/demo-bookdown/demo_bookdown_Praesentation.pptx](https://www.tinuschneider.ch/demo-bookdown/demo_bookdown_Praesentation.pptx)
+
+Und der Quellcode ist bei GitHub [https://github.com/tinu-schneider/Demo_Bookdown](https://github.com/tinu-schneider/Demo_Bookdown)
+
+
+```{r setup, echo = FALSE, warning=FALSE, message=FALSE}
+
+# themes for HTML: default, cerulean, journal, flatly, darkly, readable, spacelab, united, cosmo, lumen, paper, sandstone, simplex, yeti
+# 
+
+
+    knitr::opts_chunk$set(echo       = FALSE, 
+                          warning    = FALSE, 
+                          out.width  = "100%", 
+                          fig.pos    = "!hptb", 
+                          # fig.height = 1.175,
+                          cache.lazy = TRUE, 
+                          widgetframe_self_contained = FALSE,
+                          widgetframe_widgets_dir    = 'widgets' ) 
+    # COPY WIDGETS ganz am Schluss (letztes Kapitel)
+
+
+    options(tinytex.verbose = TRUE) 
+    
+    library(DT)
+    library(extrafont)
+        loadfonts(device = "win", quiet = TRUE)
+
+    library(Cairo) 
+    library(kableExtra)
+    
+    source("R/CONF.R")
+    source("R/daten_einlesen.R")
+    source("R/daten_aufbereiten.R")
+    source("R/plot_charts.R")
+    source("R/ggplot_theme_TSD.R")
+    source("R/_helpers.R")
+
+    dat  <- daten_einlesen(    "data/su-d-01.02.04.04.xlsx")
+    szen <- szenarien_einlesen("data/je-d-01.03.02.01.xls")
+    res  <- daten_bereitstellen(dat, szen)
+    
+    daten <- res # global im Text verfügbar machen
+
+```
+
+
+\vfill
+\hrule
+\vfill
+
+<br><br>
+
+
+**Autor**    
+Tinu Schneider       
+Gartenstrasse 11       
+3600 Thun    
+<br>
+
+\thispagestyle{empty}
+\clearpage
+
+
+
+

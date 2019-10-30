@@ -1,0 +1,67 @@
+
+.date {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+
+p.caption {
+  color: #3d3d3d;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+
+.mini-footer {
+    font-size: 85%;
+    margin-left: 1.2em;
+    line-height: 1.2em;
+    color: darkgray;
+}
+
+.kommentar {
+    margin-left: 320px;
+}
+
+table {
+    float: left; 
+}
+
+
+
+
+
+caption {
+  color: #3d3d3d;
+  font-size: 90% !important;
+  text-align: left;
+  display: table-caption;
+}
+
+/* figures take class caption! */
+.caption {
+  color: #3d3d3d;
+  font-size: 90% !important;
+} 
+
+
+
+.small {
+    font-size: 90% !important;
+    color: #3d3d3d !important;
+}
+
+
+
+.book .book-summary {
+  background: #ffffff;
+}
+

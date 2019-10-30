@@ -1,0 +1,65 @@
+
+\newpage
+
+# Verweise innerhalb des Textes
+
+Als Verweise unterscheiden wir 
+
+- Referenzen auf Abbildungen und Tabellen
+- Referenzen auf Titel, z.B. Abschnitte, Kapitel
+- Zitierung von Literatur
+
+Es ist mit `bookdown` zudem möglich, einzelne Werte aus den Daten automatisch in den Text zu integrieren. Damit gibt es nie mehr copy & paste - Fehler, weil eine Stelle beim Aktualisieren der Daten vergessen ging. 
+
+Als Anker für die Referenz können wir in `bookdown` ein eigenes Label wählen (z.B. `tabelle_anhang`) und uns anschliessend auf dieses Label beziehen; die zugehörige Nummerierung wird automatisch erstellt. 
+
+
+## Referenzen {#referenzen}
+
+
+### Referenzen auf Abbildungen und Tabellen
+
+Wir referenzieren eine Abbildung mit dem Präfix `fig:` und dem Label des entsprechenden `R`-Codes, beispielsweise wird  `\@ref(fig:plot-chart)` zur Referenz \@ref(fig:plot-chart). 
+
+Tabellen werden analog mit dem Präfix `tab:` erstellt,  `\@ref(tab:tabelle)` wird zu  \@ref(tab:tabelle).
+
+### Referenzen auf Titel
+Wir können einem beliebigen Titel im Text ein Label zuweisen, z.B. `{#referenzen}` als Label für den Titel dieses Kapitels. Diesen Titel können wir  anschliessend mit `\@ref(referenzen)` referenzieren, das sieht so aus:  \@ref(referenzen). 
+
+### Literatur zitieren
+Wir können externe Literatur zitieren, zum Beispiel benutzen wir hier das `R`-Paket  `bookdown`  [@xie2015]. Donald Knuth schrieb schon früh zum Thema 'Literate Programming' [@knuth1984], um auf lesbaren Code aufmerksam zu machen.
+
+
+
+
+## Daten automatisch in Text
+
+Es ist mit `bookdown` einfach, auf die im Hintergrund vorhandenen Daten zuzugreifen und Werte direkt in den Fliesstext zu integrieren.    
+
+So können wir z.B. den Wert des Referenz-Szenarios für das Jahr 2025 direkt in den Text schreiben lassen: `r gib_formatierten_wert_von(res, "Referenz", 2025)` Personen. 
+
+**Wenn sich die Daten ändern, wird dieser Wert im Text automatisch aktualisiert.**
+
+Hier wird zu diesem Zweck die folgende Funktion aufgerufen:
+
+```{r eval=FALSE, echo=TRUE}
+gib_formatierten_wert(daten, "Referenz", 2025)
+```
+
+Diese Funktion wurde für diese Analyse geschrieben und liefert aus den Daten einen formatierten Wert eines Szenarios für ein bestimmtes Jahr zurück.
+
+
+Damit ist es auch möglich, ad-hoc-Berechnungen vorzunehmen. Wenn wir beispielsweise die Differenz zwischen 'Szenario hoch' und 'Szenario tief' im Jahr 2045 wissen möchten, schreiben wir auch das direkt in der Quelldatei.
+
+```{r, echo = TRUE}
+tief <- .gib_wert_von(daten, "Tief", 2045)
+hoch <- .gib_wert_von(daten, "Hoch", 2045)
+differenz <- hoch - tief
+print(differenz)
+```
+
+Die Differenz beträgt also `r prettyNum(differenz, big.mark = "'")` Personen.
+
+
+
+

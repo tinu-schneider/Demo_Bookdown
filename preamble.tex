@@ -1,0 +1,165 @@
+
+
+\usepackage{booktabs}
+
+\usepackage{longtable}
+    \setlength{\LTleft}{0mm} % links ausrichten; gleich wie 'hang' der caption (s. unten)
+    
+\usepackage{ngerman}
+
+% \usepackage{xcolor} % wird später von kableExtra geladen; gibt sonst clash
+\PassOptionsToPackage{table, dvipsnames}{xcolor}
+
+% https://stackoverflow.com/questions/40892802/r-markdown-link-is-not-formatted-blue-when-knitted-to-pdf
+% urlcolor: blue % im YAML-Header
+
+
+\ifxetex
+    % https://tex.stackexchange.com/questions/85696/what-causes-this-strange-interaction-between-glossaries-and-amsmath
+  \makeatletter % undo the wrong changes made by mathspec
+    \let\RequirePackage\original@RequirePackage
+    \let\usepackage\RequirePackage
+  \makeatother
+  % normal weiter
+  \usepackage{letltxmacro}
+  \setlength{\XeTeXLinkMargin}{1pt}
+  \LetLtxMacro\SavedIncludeGraphics\includegraphics
+  \def\includegraphics#1#{% #1 catches optional stuff (star/opt. arg.)
+    \IncludeGraphicsAux{#1}%
+  }%
+  \newcommand*{\IncludeGraphicsAux}[2]{%
+    \XeTeXLinkBox{%
+      \SavedIncludeGraphics#1{#2}%
+    }%
+  }%
+\fi
+
+
+% weitere Pakete, eigene Erweiterungen und Anpassungen
+
+\usepackage[sfdefault]{roboto}
+\usepackage{roboto-mono}
+
+
+
+
+\usepackage{setspace} % Durchschuss
+
+\usepackage{caption}
+	\captionsetup{labelfont = bf,
+			font = small,
+			indention = 4mm,
+			labelsep = quad,
+			singlelinecheck = false,
+			aboveskip = 0.75ex,
+			belowskip = 0.75ex}
+			
+% Kopfzeile
+\usepackage{fancyhdr}
+    \lhead{Demo R-Bookdown}
+    \rhead{\nouppercase{\textit \leftmark}} % no upper case; class 'book'
+    % \rhead{\textit \nouppercase{\rightmark} \nouppercase{\leftmark} } % no upper case; class 'book'
+    \cfoot{\thepage}
+    \renewcommand{\headrule}{\color{gray}\hrule}
+
+
+% Place floats 'H' (HERE)
+\usepackage{float}
+
+\makeatletter
+	\setlength{\@fptop}{10pt}
+\makeatother
+\renewcommand{\floatpagefraction}{0.95}
+
+
+% Change Numbering accordingly to HTML (per Section)
+\usepackage{chngcntr}
+  \counterwithin{figure}{section}
+  \counterwithin{table}{section}
+  
+  
+% Set background color for code chunks
+% https://github.com/rstudio/bookdown/blob/master/inst/examples/latex/preamble.tex
+% \definecolor{shadecolor}{RGB}{100, 100, 100}
+
+
+% Language; muss hier separat angegeben werden...
+\renewcommand{\contentsname}{Inhalt}
+\renewcommand{\figurename}  {Abbildung}
+\renewcommand{\tablename}   {Tabelle}
+
+
+\usepackage{tikz}
+
+\usepackage[hang, flushmargin, bottom]{footmisc}  % Fussnoten; nach 'setspace' laden
+
+
+% Bitte keinen Titel plotten
+\AtBeginDocument{\let\maketitle\relax}
+\setcounter{tocdepth}{2} 
+
+
+\setstretch{1.05}
+
+
+% Die ganze Titelseite
+\newcommand{\titelseite}{	
+
+	\thispagestyle{empty}
+	
+    % Kopfzeile Titel
+    \begin{tikzpicture}[remember picture, overlay]
+    	\node  [xshift = 12 mm, yshift = -17 mm] 
+    	at (current page.north west) 
+    	[inner sep = 0pt, below left, anchor = north west] { 
+    	    \resizebox{128mm}{!} { % \resizebox{width}{height}{object}
+    	        \includegraphics{images/Briefkopf.png}
+    	        }
+    	};  
+    \end{tikzpicture} 
+    
+    \par
+    $\phantom{NULL}$
+    \vfill
+    
+    \huge \textbf{Demo R-Bookdown} 
+    
+    \vspace{1em}
+    
+    \Large Am Beispiel Bevölkerungsentwicklung  1991\,--\,2045
+        
+    \vspace{1.5em}
+    
+    \vfill
+    
+    \normalsize
+    
+    Verfasst von Tinu Schneider, Thun 
+    
+    Erstellt am \today 
+    
+    
+    \thispagestyle{empty}
+    
+    \newpage
+    
+    
+    % Inhalt
+    \tableofcontents
+    
+    \vfill
+    
+    \thispagestyle{empty}
+    % \newpage
+}
+
+
+% Anschliessend das Dokument
+
+
+
+
+
+
+
+

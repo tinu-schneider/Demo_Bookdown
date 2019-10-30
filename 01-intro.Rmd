@@ -1,0 +1,84 @@
+
+\pagestyle{fancy}
+
+
+# Einleitung `bookdown` {#intro}
+
+
+Wissenschaftliche Texte stellen gewisse Anforderungen an Format und Inhalt, wir wollen Fliesstext mit Daten, Grafiken, Tabellen und Verweisen mischen. Eine gute Lösung ist das Textsatzprogramm $LaTeX$, dies ist aber aufwändig zu lernen. Eine passable Lösung ist natürlich `Word`, hier fehlt aber die Automatisierung, wenn z.B. die Daten geändert haben und insbesondere die Zuverlässigkeit im alltäglichen Gebrauch.
+
+Mit `R` und `bookdown` können wir die Datenanalyse und das Erstellen eines Berichtes in einem einzigen Dokument (Quelldatei) verknüpfen und integrieren damit immer die aktuellen Daten, Grafiken und Tabellen in den Bericht. 
+
+Die hier verwendeten zwei Datensätze stammen vom Bundesamt für Statistik (BfS) und sind im Anhang \@ref(Anhang) aufgeführt. Es sind die Daten der Bevölkerung in der Schweiz von 1991--2014  und drei Szenarien zur zukünftigen Entwicklung ab 2015.
+
+Aus der `bookdown`-Quelldatei können wir eine interaktive HTML-Version und eine ansprechend gesetzte PDF-Version generieren^[Zur Not ist es sogar möglich, ein Worddokument zu erstellen.].
+
+Wir zeigen hier die wichtigsten Möglichkeiten von `bookdown`. 
+
+
+
+
+
+## Textauszeichnung 
+
+Um Text zu strukturieren verwenden wir die  einfache Text-Auszeichnungssprache  `Markdown`  
+
+
+### Überschriften
+
+Wir generieren Überschriften mit der Raute `#`. Eine einzelne Raute steht für eine Hauptüberschrift `# Hauptüberschrift H1` und dann weiter bis zum `##### Untertitel H5` mit fünf Rauten.
+
+
+### Formatierungen
+
+Mit `Markdown` können wir die wichtigsten Formatierungen ohne grossen Aufwand direkt im Text schreiben. `**fett**` wird **fett** und `_italic_` wird _italic_.
+
+Listen werden mit 
+
+```markdown
+- Ein Punkt
+- Ein nächster Punkt
+- Und noch ein Punkt
+```
+
+zu 
+
+- Ein Punkt
+- Ein nächster Punkt
+- Und noch ein Punkt
+
+Bei nummerierten Listen müssen wir uns nicht  um die Nummern kümmern, unsere Liste 
+
+```markdown
+1. Erstens
+1. Zweitens
+1. Drittens
+```
+wird automatisch korrekt nummeriert:
+
+1. Erstens
+1. Zweitens
+1. Drittens
+
+
+
+## Weitere Möglichkeiten 
+
+`Markdown` wird mit `R` zusammen `RMarkdown` und erlaubt uns, die Datenanlyse in die gleiche Quelldatei zu integrieren. 
+
+
+Wir können damit
+
+- Tabellen erstellen
+- Interaktive Abbildungen aus den aktuellen Daten erstellen
+- Querverweise auf Abbildungen, Tabellen, Kapitel definieren
+- Fussnoten und externe Links erstellen
+- Mathematik-Satz integrieren
+- Externe Grafiken einbinden
+- Aus der gleichen Quelle PDF, HTML oder Word generieren
+- und vieles mehr ...
+
+
+
+
+

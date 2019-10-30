@@ -1,0 +1,1 @@
+Die Daten wurden bereits grob aufbereitet, zB (leere) Kopfzeilen entfernt, in allen Sheets gleiche Anzahl Zeilen bis zu den ersten Daten, etc.

@@ -1,0 +1,35 @@
+
+# Tabellen
+
+Die Daten, welche für die Analyse eingelesen wurden, können in beliebiger Form als Tabelle gedruckt werden. Je nach Ausgabemedium (PDF, HTML) wird die Tabelle unterschiedlich formatiert. 
+
+Die Tabelle \@ref(tab:tabelle) zeigt einen Auszug der Szenarien des BfS zur Bevölkerungsentwicklung. Damit die Werte von Jahr zu Jahr einfacher zu vergleichen sind, benutzen wir hier einen `Monofont` (gleichabständig), so stehen alle Ziffern untereinander.
+
+
+
+(ref:tabelle) Die ersten Zeilen der Szenarien des BfS zur Bevölkerungsentwicklung der Schweiz. 
+
+```{r tabelle}
+
+    tab <- res %>% 
+        filter(Jahr >= 2015, Jahr < 2021) %>% 
+        spread(Szenario, Wert) %>% 
+        select(Jahr, Tief, Referenz, Hoch) %>% 
+        mutate(Jahr = as.character(Jahr)) # Keine big.mark für Jahr
+
+    knitr::kable(
+              tab,
+              caption = "(ref:tabelle)",
+              align = c("c", rep("r", 3)),
+              # longtable = TRUE,
+              booktabs = TRUE, 
+              format.args = list(big.mark = "'")
+        ) %>%
+    kableExtra::kable_styling(latex_options = "hold_position")  %>% 
+    # kableExtra::kable_styling(position = "left", full_width = TRUE) %>%
+    kableExtra::column_spec(c(2, 3, 4), monospace = TRUE)
+```
+
+<br>
+
+Im Anhang sind in der  Tabelle \@ref(tab:tabelle-rohdaten) die Daten von 1991 bis 2016 der Wohnbevölkerung aufgeführt.

@@ -1,0 +1,43 @@
+
+\vfill
+
+<!-- `r if (knitr::is_html_output()) '# Literatur {-}'` -->
+
+
+
+# Literatur {-}
+
+<div id="refs"></div>
+
+
+
+```{r copy-widgets}
+
+    von  <- file.path(getwd(), "widgets")
+    nach <- file.path(getwd(), "_book")
+    
+    if (!dir.exists(nach)) {
+        dir.create(nach, recursive = TRUE)
+    
+        files <- list.files(path = von,
+                            full.names = TRUE, 
+                            recursive  = TRUE,
+                            all.files  = TRUE)
+    } else {
+        files <- list.files(path = von, 
+                            pattern = "*.html", 
+                            full.names = TRUE)
+    }
+    
+    for (file in files) {
+        
+        file.copy(from = von,  # file.path(von, file), 
+                  to   = nach, # file.path(nach, file),
+                  recursive = TRUE
+                  )
+    }
+    
+    
+```
+
+

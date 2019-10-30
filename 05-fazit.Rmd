@@ -1,0 +1,6 @@
+
+# Fazit
+
+Wir haben einen hübschen kurzen Bericht erstellt und können ihn als `HTML` und `PDF` anschauen.
+
+Dieses Format eignet sich  ebensogut für die Dokumentation grosser Projekte und -- wie der Name sagt -- natürlich auch für Bücher.

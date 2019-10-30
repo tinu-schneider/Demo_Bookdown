@@ -1,0 +1,63 @@
+
+\clearpage 
+
+
+\appendix
+\addcontentsline{toc}{section}{Anhang}
+
+<!-- \fancyhead[R]{Anhang} -->
+\rhead{\textit Anhang} 
+
+
+# (APPENDIX) Anhang {-} 
+
+# Rohdaten {#Anhang}
+
+
+(ref:tabelle-rohdaten) Die Daten der Bevölkerung der Schweiz 1991--2014. Quelle: BfS. 
+
+```{r tabelle-rohdaten}
+
+    tab <- res %>% 
+        filter(Jahr < 2015) %>% 
+        spread(Szenario, Wert) %>% 
+        select(Jahr, Referenz) %>% 
+        rename(Einwohner = Referenz) %>% 
+        mutate(Jahr = as.character(Jahr)) # Keine big.mark für Jahr
+
+    knitr::kable(
+              tab,
+              caption = "(ref:tabelle-rohdaten)",
+              booktabs = TRUE, 
+              format.args = list(big.mark = "'")
+        ) %>%
+    kableExtra::kable_styling(latex_options = "hold_position")  %>% 
+    kableExtra::kable_styling(position = "left", full_width = FALSE) %>% 
+    kableExtra::column_spec(2, monospace = TRUE)
+
+```
+
+
+(ref:tabelle-szenarien) Die Daten der drei Szenarien zur Entwicklung der Bevölkerung 2015--2045. Quelle: BfS
+
+```{r tabelle-szenarien} 
+
+    tab <- res %>% 
+        filter(Jahr >= 2015) %>% 
+        spread(Szenario, Wert) %>% 
+        select(Jahr, Tief, Referenz, Hoch) %>% 
+        mutate(Jahr = as.character(Jahr)) # Keine big.mark für Jahr
+
+    knitr::kable(
+              tab,
+              caption = "(ref:tabelle-szenarien)",
+              align = c("c", rep("r", 3)),
+              # longtable = TRUE,
+              booktabs = TRUE, 
+              format.args = list(big.mark = "'")
+        ) %>%
+    kableExtra::kable_styling(latex_options = "hold_position")  %>% 
+    kableExtra::column_spec(c(2, 3, 4), monospace = TRUE)
+
+```
+

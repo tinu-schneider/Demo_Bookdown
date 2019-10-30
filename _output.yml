@@ -1,0 +1,45 @@
+bookdown::pdf_book:
+  latex_engine: xelatex
+  includes:
+    in_header: preamble.tex
+    before_body: titelei.tex
+  keep_tex: true
+  toc: no
+  number_sections: true
+  dev: "cairo_pdf"
+bookdown::gitbook:
+  split_by: "chapter"
+  css: style.css
+  dev: png
+  toc_depth: 2
+  config:
+    sharing:
+      github: yes
+      twitter: no
+      facebook: no
+      google: no
+      linkedin: no
+      weibo: no
+      instapper: no
+      vk: no
+      all: no
+    toc:
+      collapse: no
+      scroll_highlight: yes
+      before: |
+        <li>
+          <a href="./index.html">
+            &nbsp;<strong>&nbsp;Demo R-Bookdown</strong>
+          </a>
+        </li>
+      after: |
+        <li>
+            <div class = "mini-footer">
+               Tinu Schneider Datenananalyse, 2018
+            </div>
+            <a href="https://tinuschneider.ch" target="_blank">
+                <img src="images/logo.png" width = "80%">
+            </a>
+        </li>
+    edit: null
+    
