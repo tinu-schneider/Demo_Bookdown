@@ -4,14 +4,16 @@ Wir können in `bookdown` entweder bestehende Grafiken einbinden (`.jpg`, `.png`
 
 Abbildungen und Tabellen werden mit Legenden in den Bericht eingebunden; die Nummerierung wird intern automatisch erstellt und nachgeführt. 
 
+
 Die  Abbildung \@ref(fig:grafik-extern) zeigt den Ausschnitt einer externen statischen Grafik.
+
 
 (ref:grafik-extern) Die externe Grafik des BfS zeigt verschiedene Zahlen zur Bevölkerung in der Schweiz (Ausschnitt).
 
 ```{r grafik-extern, fig.cap="(ref:grafik-extern)"}
-
-    knitr::include_graphics("images/bev_bfs.png")
+    knitr::include_graphics("images/bevbfs.PNG")
 ```
+
 
 
 Aus den Rohdaten des BfS^[https://www.bfs.admin.ch/bfs/de/home/statistiken/bevoelkerung.html] können wir mit `R`  eine eigene Grafik mit den Daten zur Entwicklung der Bevölkerung in der Schweiz ab 1991 und den drei Haupt-Szenarien  bis 2045 erstellen.
