@@ -6,3 +6,5 @@ LOCAL_APP*/
 _book/
 _bookdown_files/
 widgets/
+*.log
+
