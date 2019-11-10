@@ -1,5 +1,5 @@
 bookdown::pdf_book:
-  latex_engine: xelatex
+  latex_engine: pdflatex
   includes:
     in_header: preamble.tex
     before_body: titelei.tex
@@ -35,7 +35,7 @@ bookdown::gitbook:
       after: |
         <li>
             <div class = "mini-footer">
-               Tinu Schneider Datenananalyse, 2018
+               Tinu Schneider Datenananalyse, 2019
             </div>
             <a href="https://tinuschneider.ch" target="_blank">
                 <img src="images/logo.png" width = "80%">
