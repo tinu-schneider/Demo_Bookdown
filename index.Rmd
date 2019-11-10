@@ -22,10 +22,9 @@ github-repo: "tinu-schneider/Demo_Bookdown"
 # Impressum {-}
 
 
-
 \normalsize
 
-\setstretch{1.05}
+\setstretch{1.03}
 
 Dieses Dokument wird mit [`bookdown`](http://bookdown.org) auf Basis der Programmiersprache [`R`](https://www.r-project.org/) erstellt. 
 
@@ -49,9 +48,10 @@ Und der Quellcode ist bei GitHub [https://github.com/tinu-schneider/Demo_Bookdow
     knitr::opts_chunk$set(echo       = FALSE, 
                           warning    = FALSE, 
                           out.width  = "100%", 
-                          fig.pos    = "!hptb", 
+                          fig.pos    = "!hptb",
                           # fig.height = 1.175,
-                          cache.lazy = TRUE, 
+                          # cache.lazy = TRUE, 
+                          # latex.options.graphicx = "draft=true",
                           widgetframe_self_contained = FALSE,
                           widgetframe_widgets_dir    = 'widgets' ) 
     # COPY WIDGETS ganz am Schluss (letztes Kapitel)
@@ -59,12 +59,12 @@ Und der Quellcode ist bei GitHub [https://github.com/tinu-schneider/Demo_Bookdow
 
     options(tinytex.verbose = TRUE) 
     
-    library(DT)
-    library(extrafont)
-        loadfonts(device = "win", quiet = TRUE)
-
-    library(Cairo) 
-    library(kableExtra)
+    # library(DT)
+    # library(extrafont)
+    #     loadfonts(device = "win", quiet = TRUE)
+    # 
+    # library(Cairo) 
+    # library(kableExtra)
     
     source("R/CONF.R")
     source("R/daten_einlesen.R")
