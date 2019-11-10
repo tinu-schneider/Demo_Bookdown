@@ -10,6 +10,13 @@ library(ggiraph)
 library(widgetframe)
 
 
+library(extrafont)
+loadfonts(device = "win", quiet = TRUE)
+
+library(Cairo) 
+library(kableExtra)
+
+
 CONF <- list(
         jahre = list(
             daten = 1991:2016,
