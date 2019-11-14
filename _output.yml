@@ -1,5 +1,5 @@
 bookdown::pdf_book:
-  latex_engine: pdflatex
+  latex_engine: xelatex
   includes:
     in_header: preamble.tex
     before_body: titelei.tex
