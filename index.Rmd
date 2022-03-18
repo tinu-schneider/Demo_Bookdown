@@ -91,8 +91,8 @@ Und der Quellcode ist bei GitHub [https://github.com/tinu-schneider/Demo_Bookdow
 
 **Autor**    
 Tinu Schneider       
-Gartenstrasse 11       
-3600 Thun    
+Linda 3          
+7412 Scharans  
 <br>
 
 \thispagestyle{empty}

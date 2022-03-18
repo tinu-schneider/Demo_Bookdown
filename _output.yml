@@ -35,7 +35,7 @@ bookdown::gitbook:
       after: |
         <li>
             <div class = "mini-footer">
-               Tinu Schneider Datenananalyse, 2019
+               Tinu Schneider Datenananalyse, 2022
             </div>
             <a href="https://tinuschneider.ch" target="_blank">
                 <img src="images/logo.png" width = "80%">
